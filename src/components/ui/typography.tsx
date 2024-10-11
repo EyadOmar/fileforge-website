@@ -1,5 +1,5 @@
 const headingParaStyle =
-  "mt-4 text-pretty text-xs font-normal text-muted-foreground lg:mt-6 lg:text-base";
+  "mt-4 text-pretty text-xs max-w-md mx-auto font-normal text-muted-foreground lg:mt-6 lg:text-base";
 
 type HeadingPropsType = {
   headingText: string;
