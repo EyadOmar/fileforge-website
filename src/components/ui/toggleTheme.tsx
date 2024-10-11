@@ -3,32 +3,35 @@ import { useEffect, useState } from "react";
 import { Button } from "./button";
 import { MoonIcon, SunIcon } from "lucide-react";
 
-type ThemeType = "dark" | "light";
-
 export default function ToggleTheme() {
-  const localTheme = localStorage.getItem("theme");
-  const [theme, setTheme] = useState<ThemeType>(
-    localTheme && localTheme === "dark" ? "dark" : "light",
-  );
+  const [isDark, setIsDark] = useState(false);
+
+  // Load user preference from localStorage and apply theme
   useEffect(() => {
-    const updateTheme = () => {
-      if (theme === "light") document.body.classList.add("dark");
-      else document.body.classList.remove("dark");
-    };
-    updateTheme();
-  }, [theme]);
-  const toggleTheme = () => {
-    if (theme === "light") {
-      localStorage.setItem("theme", "dark");
-      setTheme("dark");
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+      document.body.classList.add("dark");
+      setIsDark(true);
     } else {
-      localStorage.setItem("theme", "light");
-      setTheme("light");
+      document.body.classList.remove("dark");
+      setIsDark(false);
     }
+  }, []);
+
+  // Function to toggle theme and save preference
+  const toggleTheme = () => {
+    if (isDark) {
+      document.body.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.body.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+    setIsDark(!isDark);
   };
   return (
     <Button onClick={toggleTheme} size={"icon"} variant={"ghost"}>
-      {theme === "light" ? <SunIcon /> : <MoonIcon />}
+      {isDark ? <SunIcon /> : <MoonIcon />}
     </Button>
   );
 }
