@@ -1,3 +1,9 @@
+import ToolsFilter from "@/components/home/toolsFilter";
+
 export default function Home() {
-  return <div></div>;
+  return (
+    <>
+      <ToolsFilter />
+    </>
+  );
 }

@@ -25,7 +25,9 @@ export default function RootLayout({
         className={`${poppins.className} antialiased transition-colors duration-300 ease-in-out`}
       >
         <MainHeader />
-        <main>{children}</main>
+        <main className="mt-[var(--header-height-sm)] lg:mt-[var(--header-height)]">
+          {children}
+        </main>
       </body>
     </html>
   );
