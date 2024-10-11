@@ -67,9 +67,14 @@ const config: Config = {
         from: { transform: "translateY(-300px)", opacity: "0" },
         to: { transform: "translateY(0px)", opacity: "1" },
       },
+      appear: {
+        from: { opacity: "0" },
+        to: { opacity: "1" },
+      },
     },
     animation: {
       "appear-from-top": "appear-from-top 1s ease-in-out",
+      appear: "appear 1s ease-in-out",
     },
   },
   plugins: [tailwindCssAnimate],
