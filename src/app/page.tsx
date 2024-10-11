@@ -1,4 +1,5 @@
 import Hero from "@/components/home/hero";
+import ToolsCarousal from "@/components/home/ToolsCarousal";
 import ToolsFilter from "@/components/home/toolsFilter";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <Hero />
       <ToolsFilter />
+      <ToolsCarousal />
     </>
   );
 }
