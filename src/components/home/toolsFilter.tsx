@@ -5,22 +5,22 @@ import { ButtonLink } from "../ui/buttonLink";
 
 export default function ToolsFilter() {
   return (
-    <section className="section-padding container flex flex-col items-center justify-center">
+    <section className="section-padding container">
       <div className="heading-two text-center">
         <h2>Our Most Popular Tools</h2>
         <p>We present the best of the best. All free, no catch</p>
       </div>
-      <Tabs defaultValue="all" className="grid place-content-center">
-        <TabsList className="mx-auto my-8 h-[70px] w-fit space-x-2 rounded-[100px] px-2 py-3 lg:my-10">
+      <Tabs defaultValue="all" className="grid">
+        <TabsList className="mx-auto my-8 max-w-[90vw] overflow-y-auto rounded-[100px] lg:my-10 lg:h-[70px] lg:w-fit lg:space-x-2 lg:px-2 lg:py-3">
           <TabsTrigger
-            className="rounded-[100px] p-3 font-medium transition-colors duration-300 ease-in-out hover:bg-primary/80 hover:text-primary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            className="rounded-[100px] font-medium transition-colors duration-300 ease-in-out hover:bg-primary/80 hover:text-primary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground max-md:text-xs lg:p-3"
             value="all"
           >
             All Tools
           </TabsTrigger>
           {tools.slice(0, 3).map((t, i) => (
             <TabsTrigger
-              className="rounded-[100px] p-3 font-medium transition-colors duration-300 ease-in-out hover:bg-primary/80 hover:text-primary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              className="rounded-[100px] font-medium transition-colors duration-300 ease-in-out hover:bg-primary/80 hover:text-primary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground max-md:text-xs lg:p-3"
               key={`tab_trigger_${i}_${t.name}`}
               value={t.name}
             >
@@ -29,7 +29,7 @@ export default function ToolsFilter() {
           ))}
         </TabsList>
         <TabsContent
-          className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4"
           value="all"
         >
           {[...tools.slice(0, 6).map((t) => t.subTools)].flat().map((t, i) => (
@@ -42,7 +42,7 @@ export default function ToolsFilter() {
         </TabsContent>
         {tools.map((t, i) => (
           <TabsContent
-            className="grid grid-cols-[repeat(3,minmax(200px,1fr))] gap-4"
+            className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4"
             key={`tab_content_${i}_${t.name}`}
             value={t.name}
           >
@@ -56,13 +56,15 @@ export default function ToolsFilter() {
           </TabsContent>
         ))}
       </Tabs>
-      <ButtonLink
-        variant={"outline"}
-        href="#"
-        className="h-[56px] rounded-[10px] border-primary px-12 py-4 font-semibold text-primary shadow-lg hover:bg-primary hover:text-primary-foreground"
-      >
-        See All
-      </ButtonLink>
+      <div className="-mt-7 flex items-center justify-center">
+        <ButtonLink
+          variant={"outline"}
+          href="#"
+          className="h-[56px] rounded-[10px] border-primary px-12 py-4 font-semibold text-primary shadow-lg transition-all hover:scale-105 hover:bg-primary hover:text-primary-foreground hover:brightness-105"
+        >
+          See All
+        </ButtonLink>
+      </div>
     </section>
   );
 }
