@@ -84,13 +84,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-@layer components {
-  .heading-two h2 {
-    @apply text-pretty text-3xl font-bold leading-tight lg:text-5xl;
-  }
-
-  .heading-two p {
-    @apply mt-4 text-pretty text-xs font-normal text-muted-foreground lg:mt-6 lg:text-base;
-  }
-}

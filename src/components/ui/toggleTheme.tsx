@@ -30,7 +30,13 @@ export default function ToggleTheme() {
     setIsDark(!isDark);
   };
   return (
-    <Button onClick={toggleTheme} size={"icon"} variant={"ghost"}>
+    <Button
+      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      onClick={toggleTheme}
+      size={"icon"}
+      variant={"ghost"}
+    >
       {isDark ? <SunIcon /> : <MoonIcon />}
     </Button>
   );
